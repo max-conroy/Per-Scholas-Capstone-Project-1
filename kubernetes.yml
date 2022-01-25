@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sba2022deploy
+  labels:
+    app: sba2022app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sba2022app
+  template:
+    metadata:
+      labels:
+        app: sba2022app
+    spec:
+      containers:
+      - name: sba2022pod
+        image: conroy3644/sba2022.kube:latest
+        ports:
+        - containerPort: 8080
