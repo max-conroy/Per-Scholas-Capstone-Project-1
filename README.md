@@ -9,6 +9,6 @@ Technical Requirements:
 - Configure and set up a Linux-based Kubernetes cluster.  You may use minikube.  If you set up a Kubernetes cluster with virtual machines you will get extra credit.
 - Deploy 3 replicas of the application(from DockerHub) using Ansible to your Kubernetes cluster
 
-Reach goals (optional)
+Reach goals (optional):
 - Cloud implementation in AWS(ec2 free tier)/Azure/GCP; develop the integration, delivery, and deployment pipeline in the cloud.
 - Implement webhooks or Git/SCM polling
