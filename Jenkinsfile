@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Testing Flask') {
       steps {
-        sh 'pytest /home/osboxes/Per-Scholas-Capstone-Project-1/tests/testhttp.py | grep FAILED > testoutput.txt'
+        sh 'bash test.sh'
       }
     }
     stage('Deploy Kubernetes') {
