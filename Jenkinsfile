@@ -14,11 +14,6 @@ pipeline {
         }
       }
     }
-    stage('Testing Flask') {
-      steps {
-        sh 'bash test.sh'
-      }
-    }
     stage('Deploy Kubernetes') {
       steps {
         sh 'kubectl apply -f kubernetes.yml'
