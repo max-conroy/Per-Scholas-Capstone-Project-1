@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Deploy Kubernetes') {
       steps {
-        sh 'kubectl apply -f kubernetes.yml --token kubectlSecret'
+        sh 'kubectl --token kubectlSecret apply -f kubernetes.yml'
       }
     }
   }
