@@ -1,21 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sba2022deploy
+  name: capstone1deploy
   labels:
-    app: sba2022app
+    app: capstone1app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: sba2022app
+      app: capstoneapp
   template:
     metadata:
       labels:
-        app: sba2022app
+        app: capstone1app
     spec:
       containers:
-      - name: sba2022pod
-        image: conroy3644/sba2022.kube:latest
+      - name: capstone1container
+        image: conroy3644/capstone1-webapp:latest
         ports:
         - containerPort: 8080
+
+---
+
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: capstone1service
+spec:
+  type: NodePort
+  selector:
+    app: capstone1app
+  ports:
+    - protocol: TCP
+      port: 8080
+      target: 8080
+      nodePort: 7080

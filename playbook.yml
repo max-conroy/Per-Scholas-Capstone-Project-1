@@ -1,0 +1,8 @@
+---
+- hosts: servers
+  tasks:
+  - name: get updates
+    shell: sudo apt-get update
+
+  - name: start kubernetes deployment and service using yml file
+    shell: kubectl apply -f kubernetes.yml
