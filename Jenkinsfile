@@ -11,7 +11,8 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
           sh 'docker push conroy3644/capstone1-webapp:latest'
-       }
+        }
+      }
     }
     stage('Testing Flask') {
       steps {
@@ -24,5 +25,4 @@ pipeline {
       }
     }
   }
- }
 }
