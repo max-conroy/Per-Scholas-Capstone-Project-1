@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: capstone1deploy
-  labels:
-    app: capstone1app
 spec:
   replicas: 3
   selector:
@@ -18,7 +16,7 @@ spec:
       - name: capstone1container
         image: conroy3644/capstone1-webapp:latest
         ports:
-        - containerPort: 7080
+        - containerPort: 5000
 
 ---
 
@@ -27,11 +25,12 @@ kind: Service
 metadata:
   name: capstone1service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: capstone1app
   ports:
     - protocol: TCP
-      port: 7080
-      targetPort: 7080
+      port: 5000
+      targetPort: 5000
       nodePort: 31000
+      name: http
