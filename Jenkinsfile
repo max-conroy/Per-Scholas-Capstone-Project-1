@@ -16,7 +16,9 @@ pipeline {
     }
     stage('Deploy Kubernetes') {
       steps {
-        sh 'kubectl --token kubectlSecret apply -f kubernetes.yml'
+        withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubectlSecret', namespace: '', serverUrl: '') {
+          sh 'kubectl apply -f kubernetes.yml'
+        }
       }
     }
   }
