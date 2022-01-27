@@ -1,5 +1,0 @@
----
-- hosts: servers
-  tasks:
-  - name: start kubernetes deployment and service using yml file
-    shell: kubectl apply -f kubernetes.yml
