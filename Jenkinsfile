@@ -3,18 +3,17 @@ pipeline {
   stages {
     stage('Docker Build') {
       steps {
-         sh 'docker build -t conroy3644/capstone1-webapp:latest .'
+         sh 'docker build -t conroy3644/sba2022.kube:latest .'
       }
     }
     stage('Docker Push') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push conroy3644/capstone1-webapp:latest'
-        }
+          sh 'docker push conroy3644/sba2022.kube:latest'
+         }
       }
-    }
-    stage('Ansible') {
+      stage('Ansible') {
       steps {
          sh 'ansible-playbook deploy-and-scale-playbook.yml'
         }
