@@ -14,10 +14,9 @@ pipeline {
         }
       }
     }
-    stage('Deploy Kubernetes') {
+    stage('Ansible') {
       steps {
-        withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubectlSecret', namespace: '', serverUrl: '') {
-          sh 'kubectl apply -f kubernetes.yml'
+         sh 'ansible-playbook deploy-and-scale-playbook.yml'
         }
       }
     }

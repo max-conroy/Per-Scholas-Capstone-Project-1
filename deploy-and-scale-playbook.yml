@@ -7,8 +7,14 @@
       repo: 'https://github.com/max-conroy/Per-Scholas-Capstone-Project-1.git'
       dest: /home/$USER
 
+  - name: start minikube
+    shell: minikube start
+
   - name: start kubernetes deployment and service using yml file
     shell: kubectl apply -f /home/$USER/Per-Scholas-Capstone-Project-1/kubernetes.yml
 
   - name: scale up
     shell: kubectl scale deployment.apps/capstone1deploy --replicas=5
+
+  - name: test
+    shell: pytest tests/testhttp.py
