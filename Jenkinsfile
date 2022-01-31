@@ -19,5 +19,8 @@ pipeline {
         sh 'ansible-playbook deploy-and-scale-playbook.yml'
       }
     }
+    stage('Testing') {
+      sh 'python3 -m pytest tests/testhttp.py'
+    }
   }
 }

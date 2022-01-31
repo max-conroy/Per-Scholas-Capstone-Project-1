@@ -8,6 +8,9 @@
       repo: 'https://github.com/max-conroy/Per-Scholas-Capstone-Project-1.git'
       dest: /home/$USER
 
+  become: no
+  tasks:  
+
   - name: start minikube
     shell: minikube start
 
@@ -16,6 +19,3 @@
 
   - name: scale up
     shell: kubectl scale deployment.apps/capstone1deploy --replicas=5
-
-  - name: test
-    shell: pytest tests/testhttp.py
