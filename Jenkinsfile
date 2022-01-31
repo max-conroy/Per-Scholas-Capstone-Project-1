@@ -14,5 +14,10 @@ pipeline {
          }
       }
     }
+    stage('Ansible') {
+      steps {
+        sh 'ansible-playbook deploy-and-scale-playbook.yml'
+      }
+    }
   }
 }
