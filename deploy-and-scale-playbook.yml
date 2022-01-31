@@ -1,8 +1,5 @@
 ---
-- hosts: servers
-  become: true
-  becomeuser: osboxes
-
+- hosts: target
   tasks:
 
   - name: start kubernetes deployment and service using yml file
