@@ -1,16 +1,14 @@
 ---
 - hosts: servers
+<<<<<<< HEAD
   become: true
   becomeuser: osboxes
+=======
+>>>>>>> c5d9d320a33388602babaabde0d08821d524b7c4
   tasks:
 
-  - name: clone repo
-    git:
-      repo: 'https://github.com/max-conroy/Per-Scholas-Capstone-Project-1.git'
-      dest: /home/$USER
-
   - name: start kubernetes deployment and service using yml file
-    shell: kubectl apply -f /home/$USER/Per-Scholas-Capstone-Project-1/kubernetes.yml
+    shell: kubectl apply -f /home/osboxes/Per-Scholas-Capstone-Project-1/kubernetes.yml
 
   - name: scale up
     shell: kubectl scale deployment.apps/capstone1deploy --replicas=5
