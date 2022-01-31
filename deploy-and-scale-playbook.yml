@@ -1,6 +1,7 @@
 ---
 - hosts: servers
-  become: yes
+  become: true
+  becomeuser: osboxes
   tasks:
 
   - name: clone repo
