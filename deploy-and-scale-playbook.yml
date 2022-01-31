@@ -1,7 +1,7 @@
 ---
 - hosts: servers
   become: yes
-  sudo tasks:
+  tasks:
 
   - name: clone repo
     git:
