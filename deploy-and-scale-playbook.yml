@@ -1,17 +1,9 @@
 ---
 - hosts: servers
-  become: yes
 
   tasks:
-
-  
-
   - name: start kubernetes deployment and service using yml file
     shell: kubectl apply -f /home/osboxes/Per-Scholas-Capstone-Project-1/kubernetes.yml
-    become: yes
-    become_user: osboxes
 
   - name: scale up
     shell: kubectl scale deployment.apps/capstone1deploy --replicas=5
-    become: yes
-    become_user: osboxes
