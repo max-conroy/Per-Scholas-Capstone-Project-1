@@ -1,10 +1,8 @@
 ---
 - hosts: servers
-<<<<<<< HEAD
   become: true
   becomeuser: osboxes
-=======
->>>>>>> c5d9d320a33388602babaabde0d08821d524b7c4
+
   tasks:
 
   - name: start kubernetes deployment and service using yml file
