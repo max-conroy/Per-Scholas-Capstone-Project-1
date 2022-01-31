@@ -20,7 +20,9 @@ pipeline {
       }
     }
     stage('Testing') {
-      sh 'python3 -m pytest tests/testhttp.py'
+      steps {
+        sh 'python3 -m pytest tests/testhttp.py'
+      }
     }
   }
 }
