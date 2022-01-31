@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Ansible') {
       steps {
-        sh 'sudo ansible-playbook deploy-and-scale-playbook.yml'
+        sh 'ansible-playbook deploy-and-scale-playbook.yml'
       }
     }
   }
