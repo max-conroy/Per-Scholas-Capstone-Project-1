@@ -14,11 +14,6 @@ pipeline {
          }
       }
     }
-    stage('Ansible') {
-      steps {
-        sh 'ansible-playbook deploy-and-scale-playbook.yml'
-      }
-    }
     stage('Testing') {
       steps {
         sh 'python3 -m pytest tests/testhttp.py'
